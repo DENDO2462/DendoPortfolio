@@ -9,6 +9,7 @@
     const [formData, setFormData] = useState({
       firstName: "",
       lastName: "",
+      position: "",
       phone: "",
       email: "",
     });
@@ -44,7 +45,7 @@
 
         if (data.success) {
           setStatus({ loading: false, success: true, error: null });
-          setFormData({ firstName: "", lastName: "", phone: "", email: "" });
+          setFormData({ firstName: "", lastName: "", position: "", phone: "", email: "" });
         } else {
           throw new Error(data.message || "Something went wrong");
         }
@@ -213,6 +214,27 @@
                 required
               />
             </div>
+          </div>
+
+        </div>
+
+        {/* POSITION APPLYING FOR */}
+
+        <div className="form-field">
+
+          <label className="form-label">
+            Position Applying For
+          </label>
+
+          <div className="input-box">
+            <input
+              type="text"
+              name="position"
+              placeholder="e.g. Software Engineer"
+              value={formData.position}
+              onChange={handleChange}
+              required
+            />
           </div>
 
         </div>

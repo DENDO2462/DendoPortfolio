@@ -74,10 +74,16 @@ const initTables = async () => {
         id SERIAL PRIMARY KEY,
         first_name VARCHAR(100),
         last_name VARCHAR(100),
+        position VARCHAR(150),
         phone VARCHAR(30),
         email VARCHAR(150),
         created_at TIMESTAMP DEFAULT NOW()
       );
+    `);
+
+    // Migrate existing tables that predate the position column
+    await pool.query(`
+      ALTER TABLE career_applications ADD COLUMN IF NOT EXISTS position VARCHAR(150);
     `);
 
     await pool.query(`
@@ -164,16 +170,16 @@ app.post("/api/contact", async (req, res) => {
 
 app.post("/api/career", async (req, res) => {
   try {
-    const { firstName, lastName, phone, email } = req.body;
+    const { firstName, lastName, position, phone, email } = req.body;
 
     const query = `
       INSERT INTO career_applications
-      (first_name, last_name, phone, email)
-      VALUES ($1, $2, $3, $4)
+      (first_name, last_name, position, phone, email)
+      VALUES ($1, $2, $3, $4, $5)
       RETURNING *;
     `;
 
-    const values = [firstName, lastName, phone, email];
+    const values = [firstName, lastName, position, phone, email];
 
     const result = await pool.query(query, values);
 

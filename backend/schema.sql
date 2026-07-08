@@ -21,6 +21,7 @@ CREATE TABLE IF NOT EXISTS career_applications (
   id          SERIAL PRIMARY KEY,
   first_name  VARCHAR(100),
   last_name   VARCHAR(100),
+  position    VARCHAR(150),
   phone       VARCHAR(30),
   email       VARCHAR(150),
   created_at  TIMESTAMP DEFAULT NOW()
