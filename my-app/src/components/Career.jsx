@@ -5,14 +5,6 @@
 
   import heroImg from "../assets/Career-hero.jpg";
 
-  const RESUME_MAX_BYTES = 2 * 1024 * 1024; // 2 MB
-  const RESUME_ACCEPT = ".pdf,.doc,.docx";
-  const RESUME_ALLOWED_TYPES = [
-    "application/pdf",
-    "application/msword",
-    "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-  ];
-
   const Career = () => {
     const [formData, setFormData] = useState({
       firstName: "",
@@ -21,9 +13,6 @@
       phone: "",
       email: "",
     });
-
-    const [resume, setResume] = useState(null);
-    const [resumeError, setResumeError] = useState("");
 
     const [status, setStatus] = useState({
       loading: false,
@@ -49,44 +38,13 @@
       }));
     };
 
-    const handleResumeChange = (e) => {
-      const file = e.target.files[0];
-      setResumeError("");
-
-      if (!file) {
-        setResume(null);
-        return;
-      }
-
-      const isAllowedType =
-        RESUME_ALLOWED_TYPES.includes(file.type) || /\.(pdf|docx?)$/i.test(file.name);
-
-      if (!isAllowedType) {
-        setResume(null);
-        e.target.value = "";
-        setResumeError("Resume must be a PDF or Word document.");
-        return;
-      }
-
-      if (file.size > RESUME_MAX_BYTES) {
-        setResume(null);
-        e.target.value = "";
-        setResumeError("Resume must be 2 MB or smaller.");
-        return;
-      }
-
-      setResume(file);
-    };
-
     const handleSubmit = async (e) => {
       e.preventDefault();
-      if (resumeError) return;
       setStatus({ loading: true, success: false, error: null });
 
       try {
         const payload = new FormData();
         Object.entries(formData).forEach(([key, value]) => payload.append(key, value));
-        if (resume) payload.append("resume", resume);
 
         const response = await fetch("/api/career", {
           method: "POST",
@@ -108,7 +66,6 @@
         if (data.success) {
           setStatus({ loading: false, success: true, error: null });
           setFormData({ firstName: "", lastName: "", position: "", phone: "", email: "" });
-          setResume(null);
           if (e.target && typeof e.target.reset === "function") {
             e.target.reset();
           }
@@ -358,40 +315,12 @@
 
         </div>
 
-        {/* RESUME */}
-
-        <div className="form-field">
-
-          <label className="form-label">
-            Resume <span className="form-label-hint">(PDF or Word, max 2 MB)</span>
-          </label>
-
-          <div className="input-box input-box--file">
-            <input
-              type="file"
-              name="resume"
-              accept={RESUME_ACCEPT}
-              onChange={handleResumeChange}
-            />
-          </div>
-
-          {resume && !resumeError && (
-            <p className="form-file-note">
-              {resume.name} — {(resume.size / (1024 * 1024)).toFixed(2)} MB
-            </p>
-          )}
-          {resumeError && (
-            <p className="form-file-error" style={{ color: "red" }}>{resumeError}</p>
-          )}
-
-        </div>
-
         {/* BUTTON */}
 
         <button
           type="submit"
           className="apply-button"
-          disabled={status.loading || Boolean(resumeError)}
+          disabled={status.loading}
         >
           {status.loading ? "Submitting..." : "Apply Now"}
         </button>
