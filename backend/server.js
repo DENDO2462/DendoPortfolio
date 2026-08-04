@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
+const multer = require("multer");
 const { Pool, Client } = require("pg");
 
 dotenv.config();
@@ -9,6 +10,28 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+
+/* ================= FILE UPLOADS (résumé) ================= */
+// Résumés are kept in memory then stored in Postgres (bytea) so they survive
+// redeploys with no filesystem dependency. Hard cap: 2 MB.
+const RESUME_MAX_BYTES = 2 * 1024 * 1024;
+const ALLOWED_RESUME_TYPES = [
+  "application/pdf",
+  "application/msword",
+  "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+];
+
+const resumeUpload = multer({
+  storage: multer.memoryStorage(),
+  limits: { fileSize: RESUME_MAX_BYTES },
+  fileFilter: (req, file, cb) => {
+    if (ALLOWED_RESUME_TYPES.includes(file.mimetype)) {
+      cb(null, true);
+    } else {
+      cb(new Error("INVALID_RESUME_TYPE"));
+    }
+  },
+}).single("resume");
 
 /* ================= DATABASE CONNECTION & INITIALIZATION ================= */
 
@@ -77,13 +100,19 @@ const initTables = async () => {
         position VARCHAR(150),
         phone VARCHAR(30),
         email VARCHAR(150),
+        resume BYTEA,
+        resume_name VARCHAR(255),
+        resume_type VARCHAR(120),
         created_at TIMESTAMP DEFAULT NOW()
       );
     `);
 
-    // Migrate existing tables that predate the position column
+    // Migrate existing tables that predate newer columns
     await pool.query(`
       ALTER TABLE career_applications ADD COLUMN IF NOT EXISTS position VARCHAR(150);
+      ALTER TABLE career_applications ADD COLUMN IF NOT EXISTS resume BYTEA;
+      ALTER TABLE career_applications ADD COLUMN IF NOT EXISTS resume_name VARCHAR(255);
+      ALTER TABLE career_applications ADD COLUMN IF NOT EXISTS resume_type VARCHAR(120);
     `);
 
     await pool.query(`
@@ -168,34 +197,57 @@ app.post("/api/contact", async (req, res) => {
 
 /* ================= CAREER API ================= */
 
-app.post("/api/career", async (req, res) => {
-  try {
-    const { firstName, lastName, position, phone, email } = req.body;
+app.post("/api/career", (req, res) => {
+  // resumeUpload runs first so we can turn multer errors into friendly messages
+  resumeUpload(req, res, async (uploadError) => {
+    if (uploadError) {
+      if (uploadError.code === "LIMIT_FILE_SIZE") {
+        return res.status(400).json({
+          success: false,
+          message: "Resume must be 2 MB or smaller.",
+        });
+      }
+      if (uploadError.message === "INVALID_RESUME_TYPE") {
+        return res.status(400).json({
+          success: false,
+          message: "Resume must be a PDF or Word document.",
+        });
+      }
+      console.log(uploadError);
+      return res.status(400).json({ success: false, message: "Resume upload failed." });
+    }
 
-    const query = `
-      INSERT INTO career_applications
-      (first_name, last_name, position, phone, email)
-      VALUES ($1, $2, $3, $4, $5)
-      RETURNING *;
-    `;
+    try {
+      const { firstName, lastName, position, phone, email } = req.body;
+      const resume = req.file ? req.file.buffer : null;
+      const resumeName = req.file ? req.file.originalname : null;
+      const resumeType = req.file ? req.file.mimetype : null;
 
-    const values = [firstName, lastName, position, phone, email];
+      const query = `
+        INSERT INTO career_applications
+        (first_name, last_name, position, phone, email, resume, resume_name, resume_type)
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+        RETURNING id, first_name, last_name, position, phone, email, resume_name, created_at;
+      `;
 
-    const result = await pool.query(query, values);
+      const values = [firstName, lastName, position, phone, email, resume, resumeName, resumeType];
 
-    res.status(200).json({
-      success: true,
-      message: "Application submitted successfully",
-      data: result.rows[0],
-    });
-  } catch (error) {
-    console.log(error);
+      const result = await pool.query(query, values);
 
-    res.status(500).json({
-      success: false,
-      message: "Server Error",
-    });
-  }
+      res.status(200).json({
+        success: true,
+        message: "Application submitted successfully",
+        data: result.rows[0],
+      });
+    } catch (error) {
+      console.log(error);
+
+      res.status(500).json({
+        success: false,
+        message: "Server Error",
+      });
+    }
+  });
 });
 
 /* ================= FOUNDATION API ================= */
@@ -265,10 +317,15 @@ app.delete("/api/contacts/:id", async (req, res) => {
   }
 });
 
-// GET Career Applications
+// GET Career Applications (never returns the résumé blob — only whether one exists)
 app.get("/api/career", async (req, res) => {
   try {
-    const result = await pool.query("SELECT * FROM career_applications ORDER BY created_at DESC");
+    const result = await pool.query(
+      `SELECT id, first_name, last_name, position, phone, email,
+              resume_name, (resume IS NOT NULL) AS has_resume, created_at
+       FROM career_applications
+       ORDER BY created_at DESC`
+    );
     res.status(200).json({
       success: true,
       data: result.rows,
@@ -279,11 +336,38 @@ app.get("/api/career", async (req, res) => {
   }
 });
 
+// DOWNLOAD a résumé
+app.get("/api/career/:id/resume", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const result = await pool.query(
+      "SELECT resume, resume_name, resume_type FROM career_applications WHERE id = $1",
+      [id]
+    );
+    const row = result.rows[0];
+    if (!row || !row.resume) {
+      return res.status(404).json({ success: false, message: "Resume not found" });
+    }
+    res.setHeader("Content-Type", row.resume_type || "application/octet-stream");
+    res.setHeader(
+      "Content-Disposition",
+      `attachment; filename="${(row.resume_name || `resume-${id}`).replace(/"/g, "")}"`
+    );
+    res.send(row.resume);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ success: false, message: "Server Error" });
+  }
+});
+
 // DELETE Career Application
 app.delete("/api/career/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    const result = await pool.query("DELETE FROM career_applications WHERE id = $1 RETURNING *", [id]);
+    const result = await pool.query(
+      "DELETE FROM career_applications WHERE id = $1 RETURNING id",
+      [id]
+    );
     if (result.rowCount === 0) {
       return res.status(404).json({ success: false, message: "Application not found" });
     }
@@ -329,6 +413,20 @@ app.delete("/api/foundation/:id", async (req, res) => {
     console.log(error);
     res.status(500).json({ success: false, message: "Server Error" });
   }
+});
+
+/* ================= ERROR & 404 HANDLERS ================= */
+
+app.use((req, res) => {
+  res.status(404).json({ success: false, message: `Route ${req.originalUrl} not found` });
+});
+
+app.use((err, req, res, next) => {
+  console.error("Unhandled Server Error:", err);
+  res.status(err.status || 500).json({
+    success: false,
+    message: err.message || "Internal Server Error",
+  });
 });
 
 /* ================= SERVER ================= */

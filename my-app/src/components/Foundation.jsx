@@ -39,7 +39,17 @@ const Foundation = () => {
         body: JSON.stringify(formData),
       });
 
-      const data = await response.json();
+      let data = {};
+      try {
+        const text = await response.text();
+        data = text ? JSON.parse(text) : {};
+      } catch {
+        data = {};
+      }
+
+      if (!response.ok) {
+        throw new Error(data.message || `Server error (${response.status}). Please try again.`);
+      }
 
       if (data.success) {
         setStatus({ loading: false, success: true, error: null });
@@ -48,7 +58,10 @@ const Foundation = () => {
         throw new Error(data.message || "Something went wrong");
       }
     } catch (err) {
-      setStatus({ loading: false, success: false, error: err.message });
+      const errorMessage = err.message?.includes("Unexpected end of JSON input") || err.message?.includes("is not valid JSON") || err.message?.includes("Failed to execute 'json'")
+        ? "Unable to connect to the server or server returned an invalid response. Please try again."
+        : err.message;
+      setStatus({ loading: false, success: false, error: errorMessage });
     }
   };
 

@@ -18,13 +18,16 @@ CREATE TABLE IF NOT EXISTS contacts (
 
 -- 2. Career applications (Career page  ->  POST /api/career)
 CREATE TABLE IF NOT EXISTS career_applications (
-  id          SERIAL PRIMARY KEY,
-  first_name  VARCHAR(100),
-  last_name   VARCHAR(100),
-  position    VARCHAR(150),
-  phone       VARCHAR(30),
-  email       VARCHAR(150),
-  created_at  TIMESTAMP DEFAULT NOW()
+  id           SERIAL PRIMARY KEY,
+  first_name   VARCHAR(100),
+  last_name    VARCHAR(100),
+  position     VARCHAR(150),
+  phone        VARCHAR(30),
+  email        VARCHAR(150),
+  resume       BYTEA,
+  resume_name  VARCHAR(255),
+  resume_type  VARCHAR(120),
+  created_at   TIMESTAMP DEFAULT NOW()
 );
 
 -- 3. Foundation applications (Foundation page  ->  POST /api/foundation)

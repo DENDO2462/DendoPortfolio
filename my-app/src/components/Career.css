@@ -1,4 +1,62 @@
 /* ================================================= */
+/* ============== SUBMIT TOAST NOTIFICATION ========= */
+/* ================================================= */
+
+.career-toast {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 360px;
+  padding: 14px 20px;
+  border-radius: 12px;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.4;
+  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.35);
+  animation: career-toast-in 0.28s ease;
+}
+
+.career-toast--success {
+  background: #16a34a;
+}
+
+.career-toast--error {
+  background: #dc2626;
+}
+
+.career-toast-icon {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+@keyframes career-toast-in {
+  from { opacity: 0; transform: translateX(24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@media (max-width: 560px) {
+  .career-toast {
+    top: 12px;
+    right: 12px;
+    left: 12px;
+    max-width: none;
+  }
+}
+
+/* ================================================= */
 /* ================= HERO ========================== */
 /* ================================================= */
 

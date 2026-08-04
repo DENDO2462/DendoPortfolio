@@ -1,9 +1,17 @@
   // Career.jsx
 
-  import React, { useState } from "react";
+  import React, { useState, useEffect } from "react";
   import "./Career.css";
 
   import heroImg from "../assets/Career-hero.jpg";
+
+  const RESUME_MAX_BYTES = 2 * 1024 * 1024; // 2 MB
+  const RESUME_ACCEPT = ".pdf,.doc,.docx";
+  const RESUME_ALLOWED_TYPES = [
+    "application/pdf",
+    "application/msword",
+    "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+  ];
 
   const Career = () => {
     const [formData, setFormData] = useState({
@@ -14,11 +22,24 @@
       email: "",
     });
 
+    const [resume, setResume] = useState(null);
+    const [resumeError, setResumeError] = useState("");
+
     const [status, setStatus] = useState({
       loading: false,
       success: false,
       error: null,
     });
+
+    // Auto-dismiss the submit notification after a few seconds
+    useEffect(() => {
+      if (!status.success && !status.error) return;
+      const timer = setTimeout(
+        () => setStatus((prev) => ({ ...prev, success: false, error: null })),
+        5000
+      );
+      return () => clearTimeout(timer);
+    }, [status.success, status.error]);
 
     const handleChange = (e) => {
       const { name, value } = e.target;
@@ -28,29 +49,77 @@
       }));
     };
 
+    const handleResumeChange = (e) => {
+      const file = e.target.files[0];
+      setResumeError("");
+
+      if (!file) {
+        setResume(null);
+        return;
+      }
+
+      const isAllowedType =
+        RESUME_ALLOWED_TYPES.includes(file.type) || /\.(pdf|docx?)$/i.test(file.name);
+
+      if (!isAllowedType) {
+        setResume(null);
+        e.target.value = "";
+        setResumeError("Resume must be a PDF or Word document.");
+        return;
+      }
+
+      if (file.size > RESUME_MAX_BYTES) {
+        setResume(null);
+        e.target.value = "";
+        setResumeError("Resume must be 2 MB or smaller.");
+        return;
+      }
+
+      setResume(file);
+    };
+
     const handleSubmit = async (e) => {
       e.preventDefault();
+      if (resumeError) return;
       setStatus({ loading: true, success: false, error: null });
 
       try {
+        const payload = new FormData();
+        Object.entries(formData).forEach(([key, value]) => payload.append(key, value));
+        if (resume) payload.append("resume", resume);
+
         const response = await fetch("/api/career", {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
+          body: payload, // let the browser set the multipart boundary
         });
 
-        const data = await response.json();
+        let data = {};
+        try {
+          const text = await response.text();
+          data = text ? JSON.parse(text) : {};
+        } catch {
+          data = {};
+        }
+
+        if (!response.ok) {
+          throw new Error(data.message || `Server error (${response.status}). Please try again.`);
+        }
 
         if (data.success) {
           setStatus({ loading: false, success: true, error: null });
           setFormData({ firstName: "", lastName: "", position: "", phone: "", email: "" });
+          setResume(null);
+          if (e.target && typeof e.target.reset === "function") {
+            e.target.reset();
+          }
         } else {
           throw new Error(data.message || "Something went wrong");
         }
       } catch (err) {
-        setStatus({ loading: false, success: false, error: err.message });
+        const errorMessage = err.message?.includes("Unexpected end of JSON input") || err.message?.includes("is not valid JSON") || err.message?.includes("Failed to execute 'json'")
+          ? "Unable to connect to the server or server returned an invalid response. Please try again."
+          : err.message;
+        setStatus({ loading: false, success: false, error: errorMessage });
       }
     };
 
@@ -167,15 +236,23 @@
 
       <form className="apply-form" onSubmit={handleSubmit}>
 
-        {/* STATUS MESSAGES */}
+        {/* SUBMIT NOTIFICATION (toast) */}
 
-        {status.success && (
-          <p style={{ color: "green", textAlign: "center" }}>
-            Application submitted successfully!
-          </p>
-        )}
-        {status.error && (
-          <p style={{ color: "red", textAlign: "center" }}>{status.error}</p>
+        {(status.success || status.error) && (
+          <div
+            className={`career-toast ${status.success ? "career-toast--success" : "career-toast--error"}`}
+            role="status"
+            aria-live="polite"
+          >
+            <span className="career-toast-icon" aria-hidden="true">
+              {status.success ? "✓" : "!"}
+            </span>
+            <span>
+              {status.success
+                ? "Application submitted successfully! We'll be in touch."
+                : status.error}
+            </span>
+          </div>
         )}
 
         {/* FIRST + LAST NAME */}
@@ -281,12 +358,40 @@
 
         </div>
 
+        {/* RESUME */}
+
+        <div className="form-field">
+
+          <label className="form-label">
+            Resume <span className="form-label-hint">(PDF or Word, max 2 MB)</span>
+          </label>
+
+          <div className="input-box input-box--file">
+            <input
+              type="file"
+              name="resume"
+              accept={RESUME_ACCEPT}
+              onChange={handleResumeChange}
+            />
+          </div>
+
+          {resume && !resumeError && (
+            <p className="form-file-note">
+              {resume.name} — {(resume.size / (1024 * 1024)).toFixed(2)} MB
+            </p>
+          )}
+          {resumeError && (
+            <p className="form-file-error" style={{ color: "red" }}>{resumeError}</p>
+          )}
+
+        </div>
+
         {/* BUTTON */}
 
         <button
           type="submit"
           className="apply-button"
-          disabled={status.loading}
+          disabled={status.loading || Boolean(resumeError)}
         >
           {status.loading ? "Submitting..." : "Apply Now"}
         </button>
