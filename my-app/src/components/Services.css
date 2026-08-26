@@ -132,8 +132,6 @@
   justify-content: center;
   align-items: center;
 
-  margin-bottom: 36px;
-
   background: transparent;
 
   transition: transform 0.5s ease;
@@ -190,6 +188,73 @@
   line-height: 1.9;
 
   color: rgba(255, 255, 255, 0.95);
+}
+
+/* ================= COMING SOON BADGE (CARD) ================= */
+
+.card-logo-section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 36px;
+}
+
+.card-coming-soon-badge {
+  margin-top: 12px;
+
+  background: rgba(255, 255, 255, 0.07);
+  border: 1.5px solid rgba(180, 215, 255, 0.6);
+
+  /* gradient text */
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-image: linear-gradient(
+    90deg,
+    #ffffff 0%,
+    #7ec8ff 35%,
+    #c8eaff 55%,
+    #7ec8ff 75%,
+    #ffffff 100%
+  );
+  background-size: 250% auto;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+
+  padding: 5px 16px;
+  border-radius: 50px;
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  animation:
+    cardTextShimmer 2.4s linear infinite,
+    cardBorderGlow 2.4s ease-in-out infinite;
+}
+
+@keyframes cardTextShimmer {
+  0%   { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
+
+@keyframes cardBorderGlow {
+  0%, 100% { box-shadow: 0 0 4px rgba(126, 200, 255, 0.3), inset 0 0 4px rgba(126, 200, 255, 0.1); border-color: rgba(180,215,255,0.4); }
+  50%       { box-shadow: 0 0 12px rgba(126, 200, 255, 0.7), inset 0 0 8px rgba(126, 200, 255, 0.2); border-color: rgba(180,215,255,0.9); }
+}
+
+/* Tighten spacing only for cards that have the badge */
+.service-card.has-coming-soon .card-logo-section {
+  margin-bottom: 16px;
+}
+
+.service-card.has-coming-soon .card-title {
+  margin-bottom: 10px;
+  font-size: 1.55rem;
 }
 
 /* ================= FEATURES ================= */

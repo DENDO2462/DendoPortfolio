@@ -21,9 +21,11 @@ const services = [
     id: 2,
     name: "Cravix",
     title: "Made for Cravings Delivered with Speed",
+    titleNode: (<>Made for Cravings<br/>Delivered with Speed</>),
     description: "Cravix brings café favorites, snacks, and beverages directly to customers anytime.",
     logo: cravixLogo,
-    type: "image"
+    type: "image",
+    comingSoon: true
   },
   {
     id: 3,
@@ -31,7 +33,8 @@ const services = [
     title: "Daily Needs Delivered Instantly",
     description: "Dendo Quick delivers groceries and essential products with convenience and reliability.",
     logo: quickLogo,
-    type: "image"
+    type: "image",
+    comingSoon: true
   },
   {
     id: 4,
@@ -49,7 +52,8 @@ const services = [
     description: "Zen makes electronic accessories and gadgets accessible with fast doorstep delivery.",
     logo: "ZEN",
     type: "text",
-    className: "zen-logo-small"
+    className: "zen-logo-small",
+    comingSoon: true
   }
 ];
 
@@ -84,7 +88,7 @@ const Services = () => {
             return (
               <div
                 key={service.id}
-                className={`service-card ${isActive ? "active" : ""}`}
+                className={`service-card ${isActive ? "active" : ""} ${service.comingSoon ? "has-coming-soon" : ""}`}
                 style={{
                   "--position": position,
                   "--abs-position": absPosition,
@@ -92,17 +96,22 @@ const Services = () => {
                 }}
                 onClick={() => handleCardClick(index)}
               >
-                <div className="card-logo-wrapper">
-                  {service.type === "image" ? (
-                    <img src={service.logo} alt={service.name} className="card-logo" />
-                  ) : (
-                    <div className={`card-logo-text ${service.className}`}>
-                      {service.logo}
-                    </div>
+                <div className="card-logo-section">
+                  <div className="card-logo-wrapper">
+                    {service.type === "image" ? (
+                      <img src={service.logo} alt={service.name} className="card-logo" />
+                    ) : (
+                      <div className={`card-logo-text ${service.className}`}>
+                        {service.logo}
+                      </div>
+                    )}
+                  </div>
+                  {service.comingSoon && (
+                    <span className="card-coming-soon-badge">Coming Soon</span>
                   )}
                 </div>
                 <div className="card-content">
-                  <h3 className="card-title">{service.title}</h3>
+                  <h3 className="card-title">{service.titleNode || service.title}</h3>
                   <p className="card-description">{service.description}</p>
                 </div>
               </div>

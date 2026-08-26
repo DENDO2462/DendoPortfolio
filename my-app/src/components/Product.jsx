@@ -79,6 +79,7 @@ const Product = () => {
         <div className="service-row reverse">
           <div className="service-logo-container right-container">
             <img src={cravixImg} alt="Cravix" className="logo-img big-logo cravix-fix" />
+            <span className="coming-soon-badge">Coming Soon</span>
           </div>
           <div className="service-text-content">
             <h2 className="service-title">Made for Cravings<br className="responsive-br" />Delivered with Speed</h2>
@@ -94,6 +95,7 @@ const Product = () => {
         <div className="service-row">
           <div className="service-logo-container left-container">
             <img src={quickImg} alt="Dendo Quick" className="logo-img big-logo" />
+            <span className="coming-soon-badge">Coming Soon</span>
           </div>
           <div className="service-text-content">
             <h2 className="service-title">Daily Needs<br className="responsive-br" />Delivered Instantly</h2>
@@ -124,6 +126,7 @@ const Product = () => {
         <div className="service-row">
           <div className="service-logo-container left-container">
             <h2 className="zen-logo-text">ZEN</h2>
+            <span className="coming-soon-badge">Coming Soon</span>
           </div>
           <div className="service-text-content">
             <h2 className="service-title">Smart Tech<br className="responsive-br" />Delivered Faster</h2>
