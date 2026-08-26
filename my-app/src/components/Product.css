@@ -197,60 +197,90 @@
 }
 
 /* ===================================================== */
-/* ================= COMING SOON BADGE ================= */
+/* ================= COMING SOON CORNER RIBBON ========= */
 /* ===================================================== */
 
-.coming-soon-badge {
+.coming-soon-ribbon {
   position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 10;
+  z-index: 15;
+  width: 270px;
+  padding: 8px 0;
+  text-align: center;
 
-  background: rgba(255, 255, 255, 0.07);
-  border: 1.5px solid rgba(180, 215, 255, 0.6);
-
-  /* gradient text */
-  background-clip: text;
-  -webkit-background-clip: text;
-  background-image: linear-gradient(
-    90deg,
-    #ffffff 0%,
-    #7ec8ff 35%,
-    #c8eaff 55%,
-    #7ec8ff 75%,
-    #ffffff 100%
+  background: linear-gradient(
+    135deg,
+    rgba(0, 168, 255, 0.95) 0%,
+    rgba(0, 90, 220, 0.95) 50%,
+    rgba(0, 45, 150, 0.98) 100%
   );
-  background-size: 250% auto;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
 
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
+  box-shadow: 
+    0 4px 18px rgba(0, 0, 0, 0.45),
+    inset 0 1.5px 1px rgba(255, 255, 255, 0.6),
+    inset 0 -1.5px 1px rgba(0, 0, 0, 0.3);
 
-  padding: 7px 20px;
-  border-radius: 50px;
+  border-top: 1.5px solid rgba(255, 255, 255, 0.6);
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.2);
 
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 
-  white-space: nowrap;
-
-  animation:
-    badgeTextShimmer 2.4s linear infinite,
-    badgeBorderGlow 2.4s ease-in-out infinite;
+  overflow: hidden;
+  pointer-events: none;
 }
 
-@keyframes badgeTextShimmer {
-  0%   { background-position: 200% center; }
-  100% { background-position: -200% center; }
+/* RIGHT CONTAINER (FLAT TOP-RIGHT CORNER) */
+.right-container .coming-soon-ribbon {
+  top: 38px;
+  right: -72px;
+  transform: rotate(45deg);
 }
 
-@keyframes badgeBorderGlow {
-  0%, 100% { box-shadow: 0 0 4px rgba(126, 200, 255, 0.3); border-color: rgba(180,215,255,0.4); }
-  50%       { box-shadow: 0 0 14px rgba(126, 200, 255, 0.75); border-color: rgba(180,215,255,0.95); }
+/* LEFT CONTAINER (FLAT TOP-LEFT CORNER) */
+.left-container .coming-soon-ribbon {
+  top: 38px;
+  left: -72px;
+  transform: rotate(-45deg);
+}
+
+.coming-soon-ribbon span {
+  display: block;
+  color: #ffffff;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+  position: relative;
+  z-index: 2;
+}
+
+/* Light sheen / shimmer across ribbon */
+.coming-soon-ribbon::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.55) 50%,
+    transparent 100%
+  );
+  transform: skewX(-25deg);
+  animation: ribbonSheen 3.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  z-index: 1;
+}
+
+@keyframes ribbonSheen {
+  0% {
+    left: -120%;
+  }
+  40%, 100% {
+    left: 140%;
+  }
 }
 
 /* ===================================================== */
@@ -519,5 +549,25 @@
   .big-logo {
     width: 95%;
     height: 95%;
+  }
+
+  .coming-soon-ribbon {
+    width: 210px;
+    padding: 6px 0;
+  }
+
+  .right-container .coming-soon-ribbon {
+    top: 26px;
+    right: -56px;
+  }
+
+  .left-container .coming-soon-ribbon {
+    top: 26px;
+    left: -56px;
+  }
+
+  .coming-soon-ribbon span {
+    font-size: 0.64rem;
+    letter-spacing: 2px;
   }
 }
