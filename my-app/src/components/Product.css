@@ -243,16 +243,32 @@
   transform: rotate(-45deg);
 }
 
-.coming-soon-ribbon span {
-  display: block;
+.ribbon-marquee {
+  display: flex;
+  width: max-content;
+  white-space: nowrap;
+  animation: ribbonMarquee 7s linear infinite;
+}
+
+.ribbon-marquee span {
+  display: inline-block;
   color: #ffffff;
-  font-size: 0.76rem;
+  font-size: 0.72rem;
   font-weight: 800;
-  letter-spacing: 3.5px;
+  letter-spacing: 2.5px;
   text-transform: uppercase;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
   position: relative;
   z-index: 2;
+}
+
+@keyframes ribbonMarquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 /* Light sheen / shimmer across ribbon */
@@ -266,12 +282,12 @@
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(255, 255, 255, 0.55) 50%,
+    rgba(255, 255, 255, 0.4) 50%,
     transparent 100%
   );
   transform: skewX(-25deg);
   animation: ribbonSheen 3.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-  z-index: 1;
+  z-index: 3;
 }
 
 @keyframes ribbonSheen {
@@ -566,8 +582,8 @@
     left: -56px;
   }
 
-  .coming-soon-ribbon span {
-    font-size: 0.64rem;
-    letter-spacing: 2px;
+  .ribbon-marquee span {
+    font-size: 0.62rem;
+    letter-spacing: 1.8px;
   }
 }

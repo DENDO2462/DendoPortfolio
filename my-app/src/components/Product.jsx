@@ -80,7 +80,10 @@ const Product = () => {
           <div className="service-logo-container right-container">
             <img src={cravixImg} alt="Cravix" className="logo-img big-logo cravix-fix" />
             <div className="coming-soon-ribbon">
-              <span>Coming Soon</span>
+              <div className="ribbon-marquee">
+                <span>COMING SOON &nbsp;•&nbsp; COMING SOON &nbsp;•&nbsp; </span>
+                <span>COMING SOON &nbsp;•&nbsp; COMING SOON &nbsp;•&nbsp; </span>
+              </div>
             </div>
           </div>
           <div className="service-text-content">
@@ -98,7 +101,10 @@ const Product = () => {
           <div className="service-logo-container left-container">
             <img src={quickImg} alt="Dendo Quick" className="logo-img big-logo" />
             <div className="coming-soon-ribbon">
-              <span>Coming Soon</span>
+              <div className="ribbon-marquee">
+                <span>COMING SOON &nbsp;•&nbsp; COMING SOON &nbsp;•&nbsp; </span>
+                <span>COMING SOON &nbsp;•&nbsp; COMING SOON &nbsp;•&nbsp; </span>
+              </div>
             </div>
           </div>
           <div className="service-text-content">
@@ -131,7 +137,10 @@ const Product = () => {
           <div className="service-logo-container left-container">
             <h2 className="zen-logo-text">ZEN</h2>
             <div className="coming-soon-ribbon">
-              <span>Coming Soon</span>
+              <div className="ribbon-marquee">
+                <span>COMING SOON &nbsp;•&nbsp; COMING SOON &nbsp;•&nbsp; </span>
+                <span>COMING SOON &nbsp;•&nbsp; COMING SOON &nbsp;•&nbsp; </span>
+              </div>
             </div>
           </div>
           <div className="service-text-content">
