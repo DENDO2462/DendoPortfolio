@@ -165,8 +165,16 @@
 
 .privacy-content h2 {
   font-size: 38px;
-  margin-bottom: 25px;
+  margin-bottom: 10px;
   font-weight: 700;
+}
+
+.privacy-content .last-updated {
+  font-size: 14px;
+  opacity: 0.7;
+  margin-bottom: 24px;
+  font-style: italic;
+  letter-spacing: 0.3px;
 }
 
 .privacy-content h3 {
@@ -177,9 +185,34 @@
 }
 
 .privacy-content p {
-  font-size: 17px;
-  line-height: 1.9;
+  font-size: 16px;
+  line-height: 1.95;
   opacity: 0.95;
+  margin-bottom: 18px;
+  text-align: justify;
+}
+
+.privacy-content ul {
+  padding-left: 22px;
+  margin-bottom: 20px;
+}
+
+.privacy-content li {
+  font-size: 16px;
+  line-height: 1.9;
+  opacity: 0.93;
+  margin-bottom: 8px;
+  text-align: justify;
+  color: #ffffff;
+}
+
+.privacy-content a {
+  color: #7ec8ff;
+  text-decoration: none;
+}
+
+.privacy-content a:hover {
+  text-decoration: underline;
 }
 
 /* ================= RESPONSIVE ================= */
@@ -275,19 +308,19 @@
 }
 
 .policy-section h3 {
-  font-size: 28px;
+  font-size: 26px;
   color: #ffffff;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
   font-weight: 700;
   border-left: 4px solid #4ea1ff;
   padding-left: 14px;
 }
 
 .policy-section h4 {
-  font-size: 20px;
+  font-size: 18px;
   color: #cfe1ff;
-  margin-top: 24px;
-  margin-bottom: 12px;
+  margin-top: 22px;
+  margin-bottom: 10px;
   font-weight: 600;
 }
 
@@ -298,10 +331,15 @@
 
 .policy-section li {
   color: #ffffff;
-  opacity: 0.95;
+  opacity: 0.93;
   line-height: 1.9;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   font-size: 16px;
+  text-align: justify;
+}
+
+.policy-section p {
+  text-align: justify;
 }
 
 .contact-box {
@@ -312,28 +350,35 @@
   margin-top: 15px;
 }
 
+.contact-box p {
+  text-align: left;
+  margin-bottom: 10px;
+}
+
 .policy-footer-note {
   margin-top: 30px;
-  padding: 18px;
+  padding: 22px;
   text-align: center;
   background: rgba(255, 255, 255, 0.08);
   border-radius: 14px;
-  font-size: 18px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 500;
   color: #ffffff;
+  line-height: 1.9;
 }
 
-.privacy-content p {
-  margin-bottom: 18px;
+.policy-footer-note p {
+  text-align: center;
+  margin-bottom: 6px;
 }
 
 @media (max-width: 768px) {
   .policy-section h3 {
-    font-size: 22px;
+    font-size: 20px;
   }
 
   .policy-section h4 {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .policy-section li {

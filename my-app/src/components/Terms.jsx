@@ -61,317 +61,159 @@ const Terms = () => {
             <div className="terms-content">
 
   <h2>DENDO Terms & Conditions</h2>
+  <p className="last-updated">Last Updated: 16 November 2025</p>
 
   <p>
-    These Terms and Conditions ("Terms") govern the use of the DENDO
-    platform operated under DENDO Private Limited.
+    These Terms and Conditions ("Terms") govern your access to and use of the
+    DENDO website and related online services operated by DENDO.
   </p>
 
   <p>
-    By accessing or using the DENDO application, website, or services,
-    you agree to these Terms and Conditions.
+    By accessing or using the DENDO website, you acknowledge that you have read,
+    understood, and agreed to these Terms.
   </p>
 
   <section className="terms-section">
     <h3>1. Eligibility</h3>
-
-
-<p>
-  DENDO is strictly intended only for individuals who are 18 years
-  of age or older.
-</p>
-
-<p>By using the Platform, you confirm that:</p>
-
-<ul>
-  <li>You are legally eligible to enter into binding agreements.</li>
-  <li>The information provided by you is accurate.</li>
-  <li>You will use the Platform only for lawful purposes.</li>
-</ul>
-
-
+    <p>The DENDO website is intended for individuals who are 18 years of age or older. By using the website, you confirm that you are legally eligible to enter into a binding agreement, the information provided by you is accurate and complete, and you will use the website only for lawful purposes.</p>
   </section>
 
   <section className="terms-section">
     <h3>2. Platform Services</h3>
-
-
-<p>
-  DENDO operates as a technology-enabled delivery and service
-  facilitation platform connecting users with vendors and delivery
-  partners.
-</p>
-
-<p>Services may include:</p>
-
-<ul>
-  <li>Food delivery</li>
-  <li>Grocery delivery</li>
-  <li>Pharmacy delivery</li>
-  <li>Hyperlocal quick delivery services</li>
-</ul>
-
-
+    <p>DENDO operates as a technology-enabled platform that facilitates connections between customers, vendors, and delivery partners. Services available through DENDO may include food delivery, grocery delivery, pharmacy delivery, hyperlocal delivery services, and other services offered through the DENDO platform. DENDO may add, modify, suspend, or discontinue services at any time.</p>
   </section>
 
   <section className="terms-section">
-    <h3>3. Account Responsibility</h3>
-
-
-<p>Users are responsible for:</p>
-
-<ul>
-  <li>Maintaining account confidentiality</li>
-  <li>Securing login credentials</li>
-  <li>Activities conducted through their account</li>
-</ul>
-
-<p>
-  DENDO may suspend or terminate accounts involved in fraud, misuse,
-  abuse, or illegal activities.
-</p>
-
-
+    <h3>3. Website Use</h3>
+    <p>You agree not to use the website for unlawful purposes, attempt unauthorized access to the website or its systems, copy, reproduce, modify, or distribute website content without authorization, introduce malicious software or harmful code, interfere with the operation or security of the website, or use the website for fraudulent or abusive activities. DENDO may restrict or terminate access if these Terms are violated.</p>
   </section>
 
   <section className="terms-section">
     <h3>4. Orders and Payments</h3>
-
-
-<p>Orders are subject to:</p>
-
-<ul>
-  <li>Vendor acceptance</li>
-  <li>Product availability</li>
-  <li>Delivery serviceability</li>
-  <li>Successful payment authorization</li>
-</ul>
-
-<p>Users agree to pay:</p>
-
-<ul>
-  <li>Product charges</li>
-  <li>Delivery fees</li>
-  <li>Taxes</li>
-  <li>Packaging charges</li>
-  <li>Platform fees where applicable</li>
-</ul>
-
-
+    <p>Where ordering or purchasing functionality is available through the website, orders are subject to vendor acceptance, product availability, delivery serviceability, and successful payment authorization. Applicable charges may include product charges, delivery charges, taxes, packaging charges, and platform or service fees where applicable. Prices and charges may change from time to time.</p>
   </section>
 
   <section className="terms-section">
     <h3>5. Cancellations and Refunds</h3>
-
-
-<p>
-  Cancellation and refund eligibility may vary depending on:
-</p>
-
-<ul>
-  <li>Order status</li>
-  <li>Vendor policies</li>
-  <li>Delivery status</li>
-  <li>Product category</li>
-</ul>
-
-<p>
-  DENDO reserves the right to deny refunds in cases involving misuse,
-  fraud, repeated abuse, or false complaints.
-</p>
-
-
+    <p>Cancellation and refund eligibility may depend on order status, vendor policies, delivery status, product category, and applicable refund policies. DENDO reserves the right to reject refund requests involving fraud, misuse, repeated abuse, or false claims.</p>
   </section>
 
   <section className="terms-section">
-    <h3>6. Delivery Terms</h3>
-
-
-<p>
-  Delivery timelines are estimates and may vary due to:
-</p>
-
-<ul>
-  <li>Traffic conditions</li>
-  <li>Weather conditions</li>
-  <li>Vendor delays</li>
-  <li>Operational issues</li>
-</ul>
-
-<p>
-  Users must provide accurate delivery information and cooperate
-  during delivery.
-</p>
-
-
+    <h3>6. Delivery</h3>
+    <p>Delivery timelines displayed on the website are estimates and may vary because of traffic, weather, vendor preparation delays, delivery partner availability, and operational or technical issues. Customers are responsible for providing accurate delivery information.</p>
   </section>
 
   <section className="terms-section">
-    <h3>7. User Conduct</h3>
-
-
-<p>Users shall not:</p>
-
-<ul>
-  <li>Use the Platform for unlawful activities</li>
-  <li>Abuse vendors, delivery partners, or employees</li>
-  <li>Conduct fraudulent transactions</li>
-  <li>Misuse offers or promotions</li>
-  <li>Attempt unauthorized access to the Platform</li>
-</ul>
-
-<p>
-  Violation may result in account suspension or permanent
-  termination.
-</p>
-
-
+    <h3>7. User Responsibilities</h3>
+    <p>Users agree to provide accurate information, maintain the security of their account credentials, use the website responsibly, respect vendors, delivery partners, employees, and other users, and cooperate during delivery or customer-support interactions.</p>
   </section>
 
   <section className="terms-section">
     <h3>8. Privacy</h3>
-
-
-<p>
-  Use of the Platform is also governed by the DENDO Privacy Policy.
-</p>
-
-<p>
-  By using the Platform, users consent to the collection and
-  processing of information as described in the Privacy Policy.
-</p>
-
-
+    <p>Your use of the DENDO website is also governed by the DENDO Privacy Policy.</p>
+    <p>The Privacy Policy explains how DENDO collects, uses, stores, and processes information.</p>
   </section>
 
   <section className="terms-section">
-    <h3>9. Communication Consent</h3>
-
-
-<p>Users agree to receive:</p>
-
-<ul>
-  <li>Order updates</li>
-  <li>OTPs</li>
-  <li>Delivery notifications</li>
-  <li>Customer support messages</li>
-  <li>Promotional communications where legally permitted</li>
-</ul>
-
-<p>Communications may be sent through:</p>
-
-<ul>
-  <li>WhatsApp</li>
-  <li>SMS</li>
-  <li>Email</li>
-  <li>Phone calls</li>
-  <li>Push notifications</li>
-</ul>
-
-
+    <h3>9. Communication</h3>
+    <p>By using DENDO services, you may receive service-related communications such as order updates, customer-support messages, service notifications, and account-related communications. Where legally permitted and subject to applicable preferences, promotional communications may also be sent through email, SMS, WhatsApp, phone calls, or other available communication channels.</p>
   </section>
 
   <section className="terms-section">
-    <h3>10. Limitation of Liability</h3>
-
-
-<p>DENDO shall not be liable for:</p>
-
-<ul>
-  <li>Delivery delays</li>
-  <li>Vendor-related quality issues</li>
-  <li>Technical downtime</li>
-  <li>Data loss</li>
-  <li>Indirect or consequential damages</li>
-</ul>
-
-<p>
-  Services are provided on an "as is" and "as available" basis.
-</p>
-
-
+    <h3>10. Intellectual Property</h3>
+    <p>All website content, including logos, brand names, text, graphics, images, designs, software, website layout, and other materials may be owned by or licensed to DENDO.</p>
+    <p>You may not reproduce, distribute, modify, or commercially exploit such content without prior authorization.</p>
   </section>
 
   <section className="terms-section">
-    <h3>11. Termination</h3>
-
-
-<p>
-  DENDO reserves the right to suspend or terminate user access for:
-</p>
-
-<ul>
-  <li>Violation of Terms</li>
-  <li>Fraudulent activities</li>
-  <li>Misuse of the Platform</li>
-  <li>Harmful conduct</li>
-</ul>
-
-
+    <h3>11. Third-Party Services and Links</h3>
+    <p>
+      The DENDO website may contain links or integrations to third-party websites or services.
+      DENDO is not responsible for the content, availability, security, or policies of
+      third-party websites or services. Your use of third-party services may be subject
+      to their own terms and policies.
+    </p>
   </section>
 
   <section className="terms-section">
-    <h3>12. Modifications to Terms</h3>
-
-
-<p>
-  DENDO may update these Terms at any time.
-</p>
-
-<p>Updates may be communicated through:</p>
-
-<ul>
-  <li>In-app notifications</li>
-  <li>WhatsApp communications</li>
-  <li>SMS</li>
-  <li>Email</li>
-  <li>Website announcements</li>
-</ul>
-
-<p>
-  Continued use of the Platform constitutes acceptance of revised
-  Terms.
-</p>
-
-
+    <h3>12. Limitation of Liability</h3>
+    <p>To the extent permitted by applicable law, DENDO shall not be responsible for delays caused by vendors or delivery partners, product quality or availability controlled by vendors, temporary website downtime, technical interruptions, or indirect or consequential losses. DENDO provides the website and services on an "as is" and "as available" basis.</p>
   </section>
 
   <section className="terms-section">
-    <h3>13. Governing Law</h3>
-
-
-<p>
-  These Terms shall be governed by the laws of India.
-</p>
-
-<p>
-  Any disputes shall be subject to the jurisdiction of courts
-  located in Dharmapuri, Tamil Nadu, India.
-</p>
-
-
+    <h3>13. Suspension and Termination</h3>
+    <p>DENDO may suspend or terminate access to the website or related services where a user violates these Terms, engages in fraudulent activities, misuses the platform, attempts unauthorized access, or engages in abusive or harmful conduct.</p>
   </section>
 
   <section className="terms-section">
-    <h3>14. Contact Information</h3>
+    <h3>14. Changes to These Terms</h3>
+    <p>DENDO may modify these Terms from time to time. Changes may be communicated through:</p>
+    <ul>
+      <li>Website announcements</li>
+      <li>Website updates</li>
+      <li>Email</li>
+      <li>SMS</li>
+      <li>Other appropriate communication channels</li>
+    </ul>
+    <p>
+      Your continued use of the website after changes are published constitutes
+      acceptance of the revised Terms.
+    </p>
+  </section>
 
+  <section className="terms-section">
+    <h3>15. Notice and Take Down Policy</h3>
+    <p>
+      DENDO respects intellectual-property rights and may take appropriate action
+      regarding content that is alleged to infringe applicable rights.
+    </p>
+    <p>
+      If you believe that content available through the DENDO website infringes your
+      copyright, trademark, or other applicable legal rights, you may submit a written
+      notice to:
+    </p>
+    <p><strong>Legal Email: <a href="mailto:legal@dendo.store">legal@dendo.store</a></strong></p>
+    <p>The notice should include sufficient information to help DENDO identify:</p>
+    <ul>
+      <li>The person submitting the complaint.</li>
+      <li>The content or material in question.</li>
+      <li>The location of the allegedly infringing content.</li>
+      <li>The nature of the legal or intellectual-property concern.</li>
+      <li>Contact information for further communication.</li>
+      <li>Any supporting documents or information reasonably necessary to evaluate the complaint.</li>
+    </ul>
+    <p>DENDO may review the complaint and take appropriate action in accordance with applicable law.</p>
+  </section>
 
-<div className="contact-box">
-  <p>
-    <strong>[COMPANY CONTACT DETAILS TO BE ADDED]</strong>
-  </p>
-</div>
-```
+  <section className="terms-section">
+    <h3>16. Governing Law</h3>
+    <p>These Terms shall be governed by the laws of India.</p>
+    <p>
+      Any disputes arising in connection with these Terms shall be subject to the
+      jurisdiction of courts located in Dharmapuri, Tamil Nadu, India, to the extent
+      permitted by applicable law.
+    </p>
+  </section>
 
+  <section className="terms-section">
+    <h3>17. Contact Information</h3>
+    <div className="contact-box">
+      <p>For general support and website-related queries:</p>
+      <p><strong>DENDO</strong></p>
+      <p>Email: <a href="mailto:support@dendo.store">support@dendo.store</a></p>
+      <p>Phone: +91 8951212583</p>
+      <p><strong>Legal Queries</strong></p>
+      <p>For legal-related questions, concerns, or requests:</p>
+      <p>Email: <a href="mailto:legal@dendo.store">legal@dendo.store</a></p>
+    </div>
   </section>
 
   <section className="terms-section">
     <div className="terms-footer-note">
-      By using the DENDO Platform, users acknowledge that they have
-      read, understood, and agreed to these Terms and Conditions.
+      By accessing or using the DENDO website, you acknowledge that you have read,
+      understood, and agreed to these Terms and Conditions.
       <br /><br />
-      DENDO operates as a service and application under
-      DENDO Private Limited.
+      DENDO operates as a service and technology platform.
     </div>
   </section>
 

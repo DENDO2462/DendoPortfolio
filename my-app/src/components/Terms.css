@@ -165,8 +165,16 @@
 
 .terms-content h2 {
   font-size: 38px;
-  margin-bottom: 25px;
+  margin-bottom: 10px;
   font-weight: 700;
+}
+
+.terms-content .last-updated {
+  font-size: 14px;
+  opacity: 0.7;
+  margin-bottom: 24px;
+  font-style: italic;
+  letter-spacing: 0.3px;
 }
 
 .terms-content h3 {
@@ -177,9 +185,34 @@
 }
 
 .terms-content p {
-  font-size: 17px;
-  line-height: 1.9;
+  font-size: 16px;
+  line-height: 1.95;
   opacity: 0.95;
+  margin-bottom: 18px;
+  text-align: justify;
+}
+
+.terms-content ul {
+  padding-left: 22px;
+  margin-bottom: 20px;
+}
+
+.terms-content li {
+  font-size: 16px;
+  line-height: 1.9;
+  opacity: 0.93;
+  margin-bottom: 8px;
+  text-align: justify;
+  color: #ffffff;
+}
+
+.terms-content a {
+  color: #7ec8ff;
+  text-decoration: none;
+}
+
+.terms-content a:hover {
+  text-decoration: underline;
 }
 
 /* ================= RESPONSIVE ================= */
@@ -275,9 +308,9 @@
 }
 
 .terms-section h3 {
-  font-size: 28px;
+  font-size: 26px;
   color: #ffffff;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
   font-weight: 700;
   border-left: 4px solid #4ea1ff;
   padding-left: 14px;
@@ -292,8 +325,13 @@
   color: #ffffff;
   font-size: 16px;
   line-height: 1.9;
-  margin-bottom: 6px;
-  opacity: 0.95;
+  margin-bottom: 8px;
+  opacity: 0.93;
+  text-align: justify;
+}
+
+.terms-section p {
+  text-align: justify;
 }
 
 .terms-content p {
@@ -308,20 +346,26 @@
   margin-top: 15px;
 }
 
+.contact-box p {
+  text-align: left;
+  margin-bottom: 10px;
+}
+
 .terms-footer-note {
   margin-top: 30px;
   background: rgba(255,255,255,0.08);
   border-radius: 16px;
-  padding: 24px;
+  padding: 22px;
   text-align: center;
-  font-size: 18px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 500;
   color: #ffffff;
+  line-height: 1.9;
 }
 
 @media (max-width: 768px) {
   .terms-section h3 {
-    font-size: 22px;
+    font-size: 20px;
   }
 
   .terms-section li {

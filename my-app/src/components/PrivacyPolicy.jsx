@@ -59,238 +59,175 @@ const PrivacyPolicy = () => {
             <div className="privacy-content">
 
   <h2>DENDO Privacy Policy</h2>
+  <p className="last-updated">Last Updated: 16th November, 2025</p>
 
   <p>
-    DENDO ("DENDO," "we," "our," or "us") is committed to protecting
-    the privacy, confidentiality, and security of user information.
-    This Privacy Policy explains how we collect, use, process, store,
-    disclose, and protect personal information when users access or use
-    the DENDO mobile application, website, and related delivery services
-    (collectively referred to as the "Platform").
+    DENDO ("DENDO", "we", "us", or "our") respects your privacy and is committed to
+    protecting the personal information of visitors and users of the DENDO website.
   </p>
 
   <p>
-    By accessing or using the Platform, you acknowledge that you have
-    read, understood, and agreed to the practices described in this
-    Privacy Policy.
+    This Privacy Policy explains how we collect, use, disclose, and protect information
+    when you access or use the DENDO website and related online services.
+  </p>
+
+  <p>
+    By accessing or using our website, you acknowledge that you have read and understood
+    this Privacy Policy.
   </p>
 
   <section className="policy-section">
     <h3>1. Information We Collect</h3>
 
-    <h4>Personal Information</h4>
-    <ul>
-      <li>Full name</li>
-      <li>Mobile number</li>
-      <li>Email address</li>
-      <li>Delivery address</li>
-      <li>Profile details voluntarily provided by the user</li>
-      <li>Date of birth (if voluntarily provided)</li>
-    </ul>
+    <h4>1.1 Personal Information</h4>
+    <p>We may collect the following personal information: name, mobile number, email address, address, account information, information submitted through forms, and other information voluntarily provided by you.</p>
 
-    <h4>Order and Transaction Information</h4>
-    <ul>
-      <li>Order history and purchased items</li>
-      <li>Payment method selected by the user</li>
-      <li>Transaction details processed through secure payment gateways</li>
-      <li>Refund, cancellation, and dispute records</li>
-    </ul>
+    <h4>1.2 Contact and Communication Information</h4>
+    <p>When you contact us, we may collect your name, email address, phone number, subject or enquiry details, and messages or other information you provide.</p>
 
-    <h4>Location Information</h4>
-    <ul>
-      <li>Real-time GPS location</li>
-      <li>Saved delivery addresses</li>
-      <li>Approximate location derived from IP address</li>
-    </ul>
+    <h4>1.3 Technical Information</h4>
+    <p>We may automatically collect technical data such as your IP address, browser type, device type, operating system, website pages visited, date and time of access, referring website, basic website usage information, and technical or diagnostic information.</p>
 
-    <h4>Device and Technical Information</h4>
-    <ul>
-      <li>Device type and model</li>
-      <li>Operating system and app version</li>
-      <li>IP address</li>
-      <li>Device identifiers</li>
-      <li>Crash reports and diagnostics</li>
-      <li>Cookies and analytics technologies</li>
-    </ul>
-
-    <h4>Communication and Interaction Data</h4>
-    <ul>
-      <li>Masked call and chat records</li>
-      <li>Delivery tracking events</li>
-      <li>User ratings and reviews</li>
-      <li>Customer support conversations</li>
-    </ul>
+    <h4>1.4 Cookies and Similar Technologies</h4>
+    <p>We may use cookies and similar technologies to keep the website functioning properly, remember user preferences, understand website usage, improve website performance, analyze traffic and user interactions, support security and fraud prevention, and measure the effectiveness of our services and communications.</p>
+    <p>
+      You may control or disable cookies through your browser settings. Some website
+      features may not function properly if cookies are disabled.
+    </p>
   </section>
 
   <section className="policy-section">
     <h3>2. How We Use Your Information</h3>
-    <ul>
-      <li>Processing and fulfilling orders</li>
-      <li>Assigning delivery partners</li>
-      <li>Providing customer support</li>
-      <li>Improving platform functionality</li>
-      <li>Sending order updates and notifications</li>
-      <li>Providing offers and promotions</li>
-      <li>Preventing fraud and illegal activities</li>
-      <li>Conducting analytics and research</li>
-      <li>Complying with legal obligations</li>
-    </ul>
+    <p>We use your information to provide and maintain our website, respond to enquiries and requests, provide customer support, improve our website and services, communicate with you, process requests submitted through the website, analyze website usage and performance, detect and prevent fraud, misuse, or unauthorized activity, maintain website security, comply with applicable laws and regulations, and protect our rights, property, and users.</p>
   </section>
 
   <section className="policy-section">
     <h3>3. How We Share Your Information</h3>
+    <p>We do not sell your personal information. We may share information where reasonably necessary for operating our website and providing services.</p>
 
-    <h4>Restaurant, Store and Vendor Partners</h4>
-    <p>
-      Information necessary to process and prepare orders may be shared
-      with merchant partners.
-    </p>
+    <h4>3.1 Service Providers</h4>
+    <p>We may share information with trusted third-party service providers that help us operate our website, such as website hosting providers, cloud service providers, analytics providers, communication service providers, security providers, and technical support providers. These providers may process information on our behalf for the services they provide to DENDO.</p>
 
-    <h4>Delivery Partners</h4>
-    <p>
-      Necessary delivery-related information including customer name,
-      contact number, and address may be shared securely.
-    </p>
-
-    <h4>Payment Service Providers</h4>
-    <p>
-      Payment information is processed through trusted third-party
-      payment gateways and financial institutions.
-    </p>
-
-    <h4>Third-Party Service Providers</h4>
-    <ul>
-      <li>Cloud hosting</li>
-      <li>Analytics services</li>
-      <li>Customer support tools</li>
-      <li>SMS and email services</li>
-      <li>Cybersecurity and fraud prevention</li>
-      <li>Operational and logistics support</li>
-    </ul>
-
-    <p>
-      DENDO does not sell, rent, trade, or commercially distribute user
-      personal information to third parties.
-    </p>
+    <h4>3.2 Legal and Regulatory Requirements</h4>
+    <p>We may disclose information where required or permitted by applicable law, including when necessary to comply with legal obligations, respond to lawful requests from authorities, protect our rights and property, prevent fraud or unlawful activity, protect the safety of users or the public, or enforce our agreements and policies.</p>
   </section>
 
   <section className="policy-section">
     <h3>4. Data Security</h3>
-    <ul>
-      <li>Encrypted data transmission</li>
-      <li>Secure server infrastructure</li>
-      <li>Role-based access controls</li>
-      <li>Authentication systems</li>
-      <li>Periodic security reviews</li>
-    </ul>
-
     <p>
-      Despite reasonable safeguards, no digital platform can guarantee
-      complete security.
+      DENDO takes reasonable technical and organizational measures to protect personal
+      information from unauthorized access, misuse, alteration, disclosure, or destruction.
+    </p>
+    <p>
+      However, no method of transmitting or storing information over the internet can be
+      guaranteed to be completely secure. We encourage users to take appropriate precautions
+      when sharing personal information online.
     </p>
   </section>
 
   <section className="policy-section">
-    <h3>5. User Rights</h3>
-    <ul>
-      <li>Access personal information</li>
-      <li>Request correction of data</li>
-      <li>Request deletion of account</li>
-      <li>Withdraw consent</li>
-      <li>Opt out of marketing communications</li>
-      <li>Restrict certain data processing activities</li>
-    </ul>
-  </section>
-
-  <section className="policy-section">
-    <h3>6. Data Retention</h3>
+    <h3>5. Data Retention</h3>
     <p>
-      DENDO retains personal information only for as long as necessary
-      to provide services, comply with laws, resolve disputes, and
-      enforce agreements.
+      We retain personal information only for as long as reasonably necessary for the purposes described in this Privacy Policy. We may retain information for longer periods where necessary for legal or regulatory requirements, dispute resolution, fraud prevention, security purposes, enforcement of agreements, or legitimate business purposes. When information is no longer required, we may delete, anonymize, or securely dispose of it as appropriate.
     </p>
   </section>
 
   <section className="policy-section">
-    <h3>7. Cookies and Tracking Technologies</h3>
-    <ul>
-      <li>Maintain user sessions</li>
-      <li>Analyze traffic and user behavior</li>
-      <li>Improve platform functionality</li>
-      <li>Personalize user experience</li>
-      <li>Measure advertising effectiveness</li>
-    </ul>
+    <h3>6. Your Rights</h3>
+    <p>Subject to applicable laws, you may have rights regarding your personal information, including the right to request access to personal information held by us, request correction of inaccurate information, request deletion of personal information where legally permitted, withdraw consent where applicable, and raise privacy-related concerns or complaints. To exercise your applicable rights, you may contact us using the details provided in the Contact Information section.</p>
+  </section>
+
+  <section className="policy-section">
+    <h3>7. Third-Party Links</h3>
+    <p>
+      Our website may contain links to third-party websites, services, or platforms.
+      DENDO is not responsible for the privacy practices, security, or content of
+      third-party websites. We recommend reviewing the privacy policy of any third-party
+      website before providing personal information.
+    </p>
   </section>
 
   <section className="policy-section">
     <h3>8. Children's Privacy</h3>
     <p>
-      The DENDO Platform is strictly intended only for individuals who
-      are 18 years of age or older.
+      Our website is not intended for children who are not legally permitted to use such
+      services under applicable laws. We do not knowingly seek to collect personal
+      information from children in violation of applicable laws.
     </p>
-
     <p>
-      DENDO does not knowingly collect personal information from minors
-      under the age of 18.
+      If you believe that a child has provided personal information to us without
+      appropriate authorization, please contact us so that we can take appropriate action.
     </p>
   </section>
 
   <section className="policy-section">
-    <h3>9. Third-Party Links and Services</h3>
+    <h3>9. Changes to This Privacy Policy</h3>
     <p>
-      The Platform may contain links to third-party websites,
-      applications, or services. DENDO is not responsible for the
-      privacy practices of such external platforms.
+      DENDO may update this Privacy Policy from time to time to reflect changes to our
+      services, website, technology, applicable laws, or privacy practices. When we make
+      changes, we will update the "Last Updated" date displayed at the beginning of this
+      Privacy Policy. We encourage you to review this Privacy Policy periodically.
     </p>
   </section>
 
   <section className="policy-section">
-    <h3>10. Amendments to This Privacy Policy</h3>
-    <p>
-      DENDO reserves the right to modify, update, or revise this Privacy
-      Policy at any time.
-    </p>
-
-    <ul>
-      <li>In-app notifications</li>
-      <li>Email communications</li>
-      <li>WhatsApp updates</li>
-      <li>SMS notifications</li>
-      <li>Website announcements</li>
-    </ul>
-  </section>
-
-  <section className="policy-section">
-    <h3>11. Contact Information</h3>
-
+    <h3>10. Contact Information</h3>
     <div className="contact-box">
+      <p>If you have questions, concerns, or requests regarding this Privacy Policy or your personal information, you may contact us:</p>
+      <p><strong>DENDO</strong></p>
+      <p>Email: <a href="mailto:support@dendo.store">support@dendo.store</a></p>
+      <p>Phone: +91 8951212583</p>
+      <p>Website: <a href="https://dendo.in" target="_blank" rel="noopener noreferrer">dendo.in</a></p>
       <p>
-        For questions, concerns, or requests relating to this Privacy
-        Policy:
-      </p>
-
-      <p>
-        <strong>[COMPANY CONTACT DETAILS TO BE ADDED]</strong>
+        Address:<br />
+        4/361, Varagooran Kottai,<br />
+        Kalappampadi, Maanjinaickanahalli,<br />
+        Dharmapuri, Tamil Nadu – 636813, India
       </p>
     </div>
   </section>
 
   <section className="policy-section">
-    <h3>12. Consent</h3>
-
+    <h3>11. Notice and Take Down Policy</h3>
     <p>
-      By accessing or using the DENDO Platform, users expressly consent
-      to the collection, processing, storage, and use of information in
-      accordance with this Privacy Policy.
+      DENDO respects intellectual property rights and expects users of the DENDO website
+      to do the same. If you believe that any content, image, logo, trademark, text,
+      product information, or other material available on the DENDO website infringes
+      your intellectual property rights or violates applicable law, you may submit a
+      written notice requesting that the relevant material be reviewed and, where
+      appropriate, removed or disabled.
     </p>
 
+    <h4>11.1 Information Required</h4>
+    <p>A notice should include: identification of the copyrighted work, trademark, or other intellectual property right that you believe has been infringed; identification of the material that you believe is infringing; sufficient information to help us locate the relevant material on the DENDO website; your name and contact information; a statement that you have a good-faith belief that the use of the material is not authorized by the rights owner, its agent, or applicable law; a statement that the information provided in the notice is accurate and that you are the rights owner or authorized to act on behalf of the rights owner; and your physical or electronic signature.</p>
+
+    <h4>11.2 Submission of Notice</h4>
+    <p>Please send the written communication and supporting information to:</p>
+    <p><a href="mailto:Legal@dendo.store">Legal@dendo.store</a></p>
     <p>
-      This Privacy Policy shall be governed by and interpreted in
-      accordance with the laws of India.
+      DENDO may review the submitted notice and take appropriate action in accordance
+      with applicable laws and our policies. DENDO may request additional information
+      where necessary to verify or process the notice. Knowingly submitting false,
+      misleading, or fraudulent claims may result in appropriate action under applicable law.
+    </p>
+  </section>
+
+  <section className="policy-section">
+    <h3>12. Consent</h3>
+    <p>
+      By accessing and using the DENDO website, you acknowledge that you have read and
+      understood this Privacy Policy. Where required by applicable law, DENDO may obtain
+      your consent before collecting or processing certain personal information. You may
+      withdraw consent where permitted by applicable law. Withdrawal of consent may affect
+      our ability to provide certain website features or services.
     </p>
 
     <div className="policy-footer-note">
-      DENDO operates under DENDO Private Limited.
+      <p>DENDO</p>
+      <p>Privacy: <a href="mailto:support@dendo.store">support@dendo.store</a></p>
+      <p>Legal Notices: <a href="mailto:Legal@dendo.store">Legal@dendo.store</a></p>
+      <p>Phone: +91 8951212583</p>
+      <p>© DENDO. All rights reserved.</p>
     </div>
   </section>
 
