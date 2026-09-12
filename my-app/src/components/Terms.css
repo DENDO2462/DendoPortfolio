@@ -186,22 +186,22 @@
 
 .terms-content p {
   font-size: 16px;
-  line-height: 1.95;
+  line-height: 1.6;
   opacity: 0.95;
-  margin-bottom: 18px;
+  margin-bottom: 14px;
   text-align: justify;
 }
 
 .terms-content ul {
   padding-left: 22px;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 .terms-content li {
   font-size: 16px;
-  line-height: 1.9;
+  line-height: 1.6;
   opacity: 0.93;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   text-align: justify;
   color: #ffffff;
 }
@@ -324,18 +324,19 @@
 .terms-section li {
   color: #ffffff;
   font-size: 16px;
-  line-height: 1.9;
-  margin-bottom: 8px;
+  line-height: 1.6;
+  margin-bottom: 6px;
   opacity: 0.93;
   text-align: justify;
 }
 
 .terms-section p {
   text-align: justify;
+  line-height: 1.6;
 }
 
 .terms-content p {
-  margin-bottom: 18px;
+  margin-bottom: 14px;
 }
 
 .contact-box {
@@ -348,7 +349,8 @@
 
 .contact-box p {
   text-align: left;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
+  line-height: 1.5;
 }
 
 .terms-footer-note {
@@ -360,7 +362,7 @@
   font-size: 16px;
   font-weight: 500;
   color: #ffffff;
-  line-height: 1.9;
+  line-height: 1.6;
 }
 
 @media (max-width: 768px) {
